@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anleitung – Shelby's Website verwalten</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--night:#05080F;--navy:#0B1228;--surface:#111827;--card:#0F1526;--gold:#A06B3B;--gold-light:#C4873D;--cream:#F0E8D8;--muted:#5A5060;--dim:#1E1830;--border:rgba(160,107,59,0.25);--border-dim:rgba(160,107,59,0.1)}
+body{background:var(--night);font-family:'DM Sans',sans-serif;color:var(--cream);font-size:15px;line-height:1.65}
+.header{background:var(--navy);padding:2.8rem 4rem;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--border-dim);position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(160,107,59,.12) 0%,transparent 65%);pointer-events:none}
+.brand{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.12em;color:var(--cream)}
+.brand em{color:var(--gold-light);font-style:normal}
+.sub{font-family:'DM Mono',monospace;color:var(--muted);font-size:.68rem;margin-top:.35rem;letter-spacing:.1em;text-transform:uppercase}
+.meta{text-align:right;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);line-height:2;position:relative;z-index:1}
+.meta strong{display:block;margin-bottom:.25rem;font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.2em;color:var(--gold-light)}
+.bar{height:2px;background:linear-gradient(90deg,var(--gold-light),var(--gold),transparent)}
+.main{max-width:760px;margin:0 auto;padding:3.5rem 2rem 5rem}
+h1{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:.06em;line-height:1.1;color:var(--cream);margin-bottom:.8rem}
+h1 em{color:var(--gold-light);font-style:normal}
+.intro-box{background:var(--surface);border-left:3px solid var(--gold-light);padding:1.2rem 1.6rem;margin-bottom:3rem;font-size:.88rem;color:#8A8090;line-height:1.75}
+.intro-box strong{color:var(--gold-light)}
+.section-tag{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.3em;color:var(--gold);margin:2.5rem 0 1.2rem;display:flex;align-items:center;gap:.8rem}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--border-dim)}
+.step{background:var(--card);border:1px solid var(--border-dim);padding:1.8rem 2rem;margin-bottom:1px;position:relative;overflow:hidden}
+.step:first-of-type{margin-top:0}
+.step::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(160,107,59,.06) 0%,transparent 70%)}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);opacity:.15;line-height:1;margin-bottom:.5rem;letter-spacing:.05em}
+.step h2{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:.7rem}
+.step p{font-size:.85rem;color:#8A8090;margin-bottom:.6rem;line-height:1.7}
+.step p:last-child{margin-bottom:0}
+.step strong{color:var(--cream);font-weight:500}
+.url-box{background:var(--navy);border:1px solid var(--border-dim);padding:.7rem 1.1rem;font-family:'DM Mono',monospace;font-size:.82rem;color:var(--gold-light);margin:.8rem 0;word-break:break-all;letter-spacing:.03em}
+.step ul{margin:.5rem 0 0 0;list-style:none}
+.step ul li{font-size:.83rem;color:#8A8090;margin-bottom:.4rem;padding-left:1.2rem;position:relative;line-height:1.6}
+.step ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-family:'DM Mono',monospace;font-size:.75rem}
+.tip{background:rgba(160,107,59,.08);border:1px solid var(--border-dim);padding:.9rem 1.2rem;margin-top:.8rem}
+.tip p{font-size:.8rem;color:var(--gold-light);margin:0;line-height:1.6}
+.tip p::before{content:'💡  '}
+.warning{background:rgba(220,100,30,.08);border:1px solid rgba(220,100,30,.2);padding:.9rem 1.2rem;margin-top:.8rem}
+.warning p{font-size:.8rem;color:#C4873D;margin:0;line-height:1.6}
+.warning p::before{content:'⚠️  '}
+.contact-box{background:var(--navy);border:1px solid var(--border-dim);padding:2rem;margin-top:3rem;position:relative;overflow:hidden}
+.contact-box::after{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(160,107,59,.1) 0%,transparent 70%)}
+.contact-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.1em;color:var(--gold-light);margin-bottom:1rem}
+.contact-box p{font-size:.85rem;color:#8A8090;line-height:2;position:relative;z-index:1}
+.contact-box a{color:var(--gold-light);text-decoration:none}
+.contact-box a:hover{color:var(--cream)}
+footer{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--dim);display:flex;justify-content:space-between;align-items:flex-end;font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace}
+footer strong{display:block;color:var(--cream);margin-bottom:.25rem;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500}
+@media(max-width:600px){.header{flex-direction:column;gap:1.5rem;padding:2rem}.meta{text-align:left}.main{padding:2rem 1.2rem}}
+@media print{body{background:#111}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div>
+    <div class="brand">Zwei<em>meter</em> Studio</div>
+    <div class="sub">Webdesign &amp; Entwicklung · Riesa</div>
+  </div>
+  <div class="meta">
+    <strong>Anleitung</strong>
+    Shelby's Burger &amp; Vino<br>
+    Stand: März 2026
+  </div>
+</header>
+<div class="bar"></div>
+<main class="main">
+
+  <h1>Ihre Website <em>selbst verwalten.</em></h1>
+  <div class="intro-box">
+    Diese Anleitung erklärt Ihnen in wenigen Schritten, wie Sie Ihre Website jederzeit selbst aktualisieren können — <strong>ohne Programmierkenntnisse</strong>. Speisekarte, Öffnungszeiten, Fotos und Texte ändern Sie bequem über ein einfaches Online-Formular.
+  </div>
+
+  <div class="section-tag">So funktioniert es</div>
+
+  <div class="step">
+    <div class="step-num">01</div>
+    <h2>Das Backend aufrufen</h2>
+    <p>Öffnen Sie in Ihrem Browser folgende Adresse:</p>
+    <div class="url-box">https://shelbysriesaburgerundvino.netlify.app/admin</div>
+    <p>Sie sehen ein Anmeldeformular. Melden Sie sich mit Ihrer E-Mail-Adresse an.</p>
+    <div class="tip"><p>Lesezeichen setzen! Dann ist das Backend immer schnell erreichbar.</p></div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">02</div>
+    <h2>Den Bereich auswählen</h2>
+    <p>Nach dem Login sehen Sie links ein Menü mit folgenden Bereichen:</p>
+    <ul>
+      <li><strong>Öffnungszeiten</strong> — Zeiten für jeden Wochentag ändern</li>
+      <li><strong>Speisekarte</strong> — Burger, Weine, Cocktails und Snacks pflegen</li>
+      <li><strong>Galerie</strong> — bis zu 6 Fotos hochladen und austauschen</li>
+      <li><strong>Allgemeine Infos</strong> — Telefon, E-Mail und Adresse</li>
+    </ul>
+    <p style="margin-top:.6rem">Klicken Sie auf den Bereich, den Sie ändern möchten.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">03</div>
+    <h2>Inhalte ändern</h2>
+    <p>Sie sehen ein einfaches Formular — ähnlich wie ein Word-Dokument. Klicken Sie in ein Feld und tippen Sie Ihre Änderung ein.</p>
+    <p><strong>Speisekarte:</strong> Mit dem „+" Button fügen Sie neue Gerichte hinzu. Mit dem Papierkorb-Symbol löschen Sie Einträge.</p>
+    <p><strong>Fotos:</strong> Klicken Sie auf „Bild auswählen" und laden Sie ein Foto von Ihrem Computer hoch.</p>
+    <div class="warning"><p>Bitte nur Fotos in guter Qualität hochladen (mind. 1000px breit). JPG oder PNG sind ideal.</p></div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">04</div>
+    <h2>Speichern &amp; Veröffentlichen</h2>
+    <p>Wenn Sie fertig sind, klicken Sie oben rechts auf <strong>„Veröffentlichen"</strong>.</p>
+    <p>Die Website aktualisiert sich danach automatisch — das dauert in der Regel <strong>1–2 Minuten</strong>.</p>
+    <div class="tip"><p>Laden Sie die Website danach neu (Taste F5), um Ihre Änderungen zu sehen.</p></div>
+  </div>
+
+  <div class="section-tag">Häufige Fragen</div>
+
+  <div class="step">
+    <div class="step-num">?</div>
+    <h2>Ich habe mein Passwort vergessen</h2>
+    <p>Auf der Anmeldeseite gibt es den Link „Passwort vergessen". Sie erhalten dann eine E-Mail mit einem neuen Link.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">?</div>
+    <h2>Ich sehe meine Änderungen nicht sofort</h2>
+    <p>Das ist normal — die Website braucht 1–2 Minuten zum Aktualisieren. Bitte Seite neu laden (F5 oder Strg+R).</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">?</div>
+    <h2>Ich möchte etwas am Design ändern</h2>
+    <p>Design-Änderungen (Farben, Schriften, Layout) sind über das Backend nicht möglich — das schützt das professionelle Erscheinungsbild. Für Design-Anpassungen wenden Sie sich bitte an den Webentwickler.</p>
+  </div>
+
+  <div class="contact-box">
+    <div class="contact-title">Noch Fragen? Ich helfe gerne.</div>
+    <p>
+      Bei technischen Problemen oder Fragen zur Website stehe ich jederzeit zur Verfügung:<br><br>
+      📧 <a href="/cdn-cgi/l/email-protection#a4ccc5c8c8cbe4ded3c1cdc9c1d0c1d689d7d0d1c0cdcb8ac0c1"><span class="__cf_email__" data-cfemail="6b030a0707042b111c0e02060e1f0e1946181f1e0f0204450f0e">[email&#160;protected]</span></a><br>
+      📞 +49 170 9042424<br><br>
+      <span style="font-size:.78rem;color:var(--muted)">— Musa Götze, Zweimeter Studio</span>
+    </p>
+  </div>
+
+  <footer>
+    <div><strong>Zweimeter Studio · Musa Götze</strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c444d4040436
